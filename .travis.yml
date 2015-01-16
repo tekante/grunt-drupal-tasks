@@ -4,6 +4,7 @@ php:
 before_install:
   - composer self-update
   - echo "sendmail_path='true'" >> `php --ini | grep "Loaded Configuration" | awk '{print $4}'`
+  - php -i
   - phpenv config-rm apc.ini
 install:
   - echo "Code checkout disk usage"; du -chs .; ls -lRa
