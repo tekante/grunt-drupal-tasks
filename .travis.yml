@@ -1,12 +1,15 @@
 language: php
+
 php:
   - 5.4
+
 before_install:
   - composer self-update
+  - sudo apt-get update
+  - sudo apt-get install php5-cli php5-cgi php5-curl php5-gd php5-mysql
   - echo "sendmail_path='true'" >> `php --ini | grep "Loaded Configuration" | awk '{print $4}'`
-  - pecl list
-  - ls -lR ~/.phpenv
-  - phpenv rehash
+  - php -i
+
 install:
   - echo "Code checkout disk usage"; du -chs .; ls -lRa
   - ./test/create_working_copy.sh
@@ -14,6 +17,7 @@ install:
   - echo "Example working copy disk usage"; du -chs .
   - npm install -g grunt-cli
   - npm install -g mocha
+
 script:
   - export PATH=$PATH:`pwd`/bin
   - grunt --timer
