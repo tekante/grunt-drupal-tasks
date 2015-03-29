@@ -5,7 +5,9 @@ php:
 
 before_install:
   - composer self-update
-  - sudo apt-get update > /dev/null
+  - sudo add-apt-repository ppa:ondrej/php5-oldstable
+  - sudo apt-get update
+  - sudo apt-get upgrade
   - sudo apt-get install php5-cli php5-cgi php5-curl php5-gd php5-mysql
   - echo "sendmail_path='true'" >> `php --ini | grep "Loaded Configuration" | awk '{print $4}'`
   - php -i
