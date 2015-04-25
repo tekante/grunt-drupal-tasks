@@ -1,0 +1,163 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Grunt-drupal-tasks</title>
+  <meta name="description" content="Grunt-based build and testing tasks for Drupal">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Grunt-drupal-tasks</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">Grunt-based build and testing tasks for Drupal</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/phase2/grunt-drupal-tasks/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/phase2/grunt-drupal-tasks/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/phase2/grunt-drupal-tasks" class="code">View Grunt-drupal-tasks on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a id="drupal-grunt-build-and-testing-tasks" class="anchor" href="#drupal-grunt-build-and-testing-tasks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Drupal Grunt Build and Testing Tasks</h1>
+
+<p>Code Status (master branch):
+<a href="https://travis-ci.org/phase2/grunt-drupal-tasks"><img src="https://travis-ci.org/phase2/grunt-drupal-tasks.svg?branch=master" alt="Travis CI status"></a>
+<a href="https://david-dm.org/phase2/grunt-drupal-tasks"><img src="https://david-dm.org/phase2/grunt-drupal-tasks.svg" alt="Dependency Status"></a>
+<a href="https://david-dm.org/phase2/grunt-drupal-tasks#peer-badge-embed"><img src="https://david-dm.org/phase2/grunt-drupal-tasks/peer-status.svg" alt="Peer Dependency Status"></a>
+<a href="https://www.npmjs.com/package/grunt-drupal-tasks"><img src="https://badge.fury.io/js/grunt-drupal-tasks.svg" alt="npm version"></a></p>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li><p>Install <em>Node.js v0.10.0 or better</em> either using a
+<a href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">package manager</a>
+like apt-get, brew, or yum or a
+<a href="http://nodejs.org/download/">standalone installer</a>.</p></li>
+<li><p>Once <em>Node.js</em> is installed, use <em>npm</em> to install
+<a href="https://github.com/gruntjs/grunt-cli">grunt-cli</a>, the Grunt command
+line interface, by running:</p></li>
+</ul>
+
+<pre><code>npm install -g grunt-cli
+</code></pre>
+
+<ul>
+<li>Some optional features, used in the included example and end-to-end test
+suite, require additional tools, including <a href="http://bundler.io/">Bundler</a>,
+<a href="https://getcomposer.org/download/">Composer</a>, Ruby, and RubyGems.</li>
+</ul>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<p>This project is built on the tools of the Grunt community to provide scripted
+automation of a number of PHP &amp; Drupal tasks. Here are a few examples of what it
+provides:</p>
+
+<ul>
+<li>Drush make-based build workflow</li>
+<li>CI portability (used with Jenkins so far)</li>
+<li>Opt-in for a number of great enhancements:
+
+<ul>
+<li>Composer dependency management for PHP</li>
+<li>Bundler dependency management for Ruby</li>
+<li>PHP code quality &amp; static analysis checks</li>
+<li>Compass compilation</li>
+<li>Behat testing</li>
+</ul>
+</li>
+<li>Deployment packaging</li>
+<li>Extensibility: Add or override with your plugins or configuration.</li>
+</ul>
+
+<p>We are continuously working to improve this toolchain, adding functionality that
+we see as common to our <em>continuous integration</em> and everyday development
+practices.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Working on a project that's integrated <strong>grunt-drupal-tasks</strong>? Run <code>grunt help</code>
+to view documentation tailored for your project.</p>
+
+<p>To build your Drupal site, run <code>grunt</code>.</p>
+
+<h3>
+<a id="special-flags" class="anchor" href="#special-flags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Special Flags</h3>
+
+<p>These flags are not yet documented as part of the <code>grunt help</code> command.</p>
+
+<ul>
+<li>
+<code>--quiet</code>: Suppress desktop notifications.</li>
+<li>
+<code>--timer</code>: Output execution time profile at the end of the task run.</li>
+<li>
+<code>--concurrency</code>: Override the dynamic concurrency by Drush Make.</li>
+</ul>
+
+<h3>
+<a id="environment-options" class="anchor" href="#environment-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Environment Options</h3>
+
+<p>These environment variables will override other options.</p>
+
+<ul>
+<li>
+<code>GRUNT_DRUPAL_QUIET</code>: If evaluated truthy, will suppress all desktop notifications.</li>
+</ul>
+
+<h2>
+<a id="setting-up-and-extending" class="anchor" href="#setting-up-and-extending" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting Up and Extending</h2>
+
+<p>For information on setting up your project with these tools, see
+<a href="https://github.com/phase2/grunt-drupal-tasks/blob/master/CONFIG.md">CONFIG.md</a>.</p>
+
+<p>For information on extending these tools or contributing changes, see
+<a href="https://github.com/phase2/grunt-drupal-tasks/blob/master/EXTEND.md">EXTEND.md</a>.</p>
+
+<p>For information on using these tools with a continuous integration (CI) system,
+see <a href="https://github.com/phase2/grunt-drupal-tasks/blob/master/CI.md">CI.md</a>.</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/phase2" class="avatar"><img src="https://avatars3.githubusercontent.com/u/148441?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/phase2">phase2</a> maintains <a href="https://github.com/phase2/grunt-drupal-tasks">Grunt-drupal-tasks</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/phase2/grunt-drupal-tasks/tarball/master" class="tar">tar</a><a href="https://github.com/phase2/grunt-drupal-tasks/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
